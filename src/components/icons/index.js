@@ -1,0 +1,11 @@
+export { default as CatalogIcon } from './src/Catalog.icon';
+export { default as SearchIcon } from './src/Search.icon';
+export { default as HeartIcon } from './src/Heart.icon';
+export { default as NetworkIcon } from './src/Network.icon';
+export { default as CartIcon } from './src/Cart.icon';
+export { default as VK } from './src/vk.icon';
+export { default as Strelka } from './src/Strelka.icon';
+export { default as Karzinka } from './src/Karzinka.icon';
+export { default as Left } from './src/Left.icon';
+export { default as Right } from './src/Right.icon';
+export { default as Strelka1 } from './src/Strelka1.icon';
