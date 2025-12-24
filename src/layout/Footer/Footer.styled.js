@@ -4,6 +4,7 @@ import {bgColors} from '../../theme';
 export const FooterWrapper = styled.footer`
     background-color: ${bgColors.lightBlue};
     padding: 79px;
+    margin-top: 60px;
 `;
 
 export const FooterWrapper_1 = styled.footer`

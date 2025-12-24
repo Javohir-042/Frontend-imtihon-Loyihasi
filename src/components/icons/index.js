@@ -9,3 +9,4 @@ export { default as Karzinka } from './src/Karzinka.icon';
 export { default as Left } from './src/Left.icon';
 export { default as Right } from './src/Right.icon';
 export { default as Strelka1 } from './src/Strelka1.icon';
+export { default as Strelka_ongga } from './src/>.icon';

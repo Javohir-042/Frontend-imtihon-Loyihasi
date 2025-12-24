@@ -8,6 +8,7 @@ export const useAppNavigation = () => {
         goToAbout: () => navigate("/o_кoмпaнии"),
         goToPopular: () => navigate("/popular-products"), 
         goToCatalog: () => navigate("/catalog"),
-        goToBlog: () => navigate("/Блог")
+        goToBlog: () => navigate("/Блог"),
+        goToKatalog: () => navigate("/Каталог")
     };
 };
