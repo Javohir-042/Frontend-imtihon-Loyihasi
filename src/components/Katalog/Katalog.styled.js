@@ -11,7 +11,7 @@ export const Katalog = styled.div`
     font-weight: 700;
   }
 
-  .Home_strelka {import { useAppNavigation } from "../../hooks/useAppNavigation";
+  .Home_strelka {
 
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ export const CatalogGrid = styled.div`
 export const CatalogCard = styled.div`
   background-color: #f6f6f6;
   border-radius: 20px;
-  padding: 30px;
+  padding: 32px;
   height: 250px;
   position: relative;
   transition: 0.3s;
@@ -57,6 +57,9 @@ export const CatalogCard = styled.div`
   .title {
     font-size: 20px;
     font-weight: 600;
+    width: 125px;
+    color: #888;
+
   }
 
   img {

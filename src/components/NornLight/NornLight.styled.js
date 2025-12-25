@@ -38,11 +38,12 @@ export const WhyCard = styled.div`
   background: #fff;
   border: 1px solid #f2f2f2;
   border-radius: 10px;
-  padding: 50px 30px;
+  padding: 50px 50px;
   min-height: 380px;
   display: flex;
   flex-direction: column;
   transition: 0.3s;
+  width: 310px;
 
   &:hover {
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -56,7 +57,7 @@ export const WhyCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 79px;
 
     img {
       width: 45px;

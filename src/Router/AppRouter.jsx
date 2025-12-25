@@ -11,6 +11,7 @@ const Контакты = lazy(() => import("../page/Контакты"));
 const О_компании = lazy(() => import("../page/О_Kомпании"));
 const PopularProducts = lazy(() => import("../page/PopularProducts/index.jsx"));
 const Каталог = lazy(() => import("../page/Каталог/index.jsx"));
+const ProductDetail = lazy(() => import("../page/Product/index.jsx"))
 
 function AppRouter() {
   return (
@@ -27,6 +28,7 @@ function AppRouter() {
           <Route path="Контакты" element={<Контакты />} />
           <Route path="o_кoмпaнии" element={<О_компании />} />
           <Route path="Каталог" element={<Каталог />} />
+          <Route path="product/:id" element={<ProductDetail />} />
         </Route>
       </Routes>
     </Suspense>

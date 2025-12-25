@@ -1,5 +1,5 @@
 import React from "react";
-import hero_lamp from "../../assets/hero-lamp.svg";
+import hero_lamp from "../../assets/svg/hero-lamp.svg";
 import {
   HomePage,
   Homes

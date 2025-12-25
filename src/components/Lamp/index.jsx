@@ -1,10 +1,11 @@
 import React from 'react';
 import { ProductCard, ProductsGrid } from './Lamp.styled';
 import { Karzinka } from '../icons';
-import product1 from "../../assets/lamp-product.svg";
+import product1 from "../../assets/svg/lamp-product.svg";
 
 
-import yurakcha from "../../assets/yurakcha.svg";
+import yurakcha from "../../assets/svg/yurakcha.svg";
+import { Link } from 'react-router-dom';
 
 function Lamp(props) {
 
@@ -60,30 +61,34 @@ function Lamp(props) {
       ];
 
     return (
-      <div>
-        <ProductsGrid>
-          {products.map((product) => (
-            <ProductCard key={product.id}>
-              <div className="product-yurakcha">
-                <img src={yurakcha} alt="" />
-              </div>
+      <ProductsGrid>
+        {products.map((product) => (
+          <ProductCard key={product.id}>
+            <div className="product-yurakcha">
+              <img src={yurakcha} alt="" />
+            </div>
+
+            <Link
+              to={`/product/${product.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <div className="product-img">
                 <img src={product.image} alt={product.name} />
               </div>
-
               <p>{product.name}</p>
-              <span className="category">7 000₽</span>
+            </Link>
 
-              <div className="product-bottom">
-                <span className="price">{product.price}</span>
-                <button className="cart-btn">
-                  <Karzinka />
-                </button>
-              </div>
-            </ProductCard>
-          ))}
-        </ProductsGrid>
-      </div>
+            <span className="category">7 000₽</span>
+
+            <div className="product-bottom">
+              <span className="price">{product.price}</span>
+              <button className="cart-btn">
+                <Karzinka />
+              </button>
+            </div>
+          </ProductCard>
+        ))}
+      </ProductsGrid>
     );
 }
 
