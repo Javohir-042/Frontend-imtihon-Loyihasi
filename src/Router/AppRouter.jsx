@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import MainLayout from "../layout/MainLayout.jsx"
+import MainLayout from "../layout/MainLayout.jsx";
 
-const Home = lazy(() => import("../page/Home/indes.jsx"));
+const Home = lazy(() => import("../page/Home/indes.jsx")); 
 const Блог = lazy(() => import("../page/Блог"));
 const Возврат = lazy(() => import("../page/Возврат"));
 const Гарантии = lazy(() => import("../page/Гарантии"));
@@ -11,16 +11,17 @@ const Контакты = lazy(() => import("../page/Контакты"));
 const О_компании = lazy(() => import("../page/О_Kомпании"));
 const PopularProducts = lazy(() => import("../page/PopularProducts/index.jsx"));
 const Каталог = lazy(() => import("../page/Каталог/index.jsx"));
-const ProductDetail = lazy(() => import("../page/Product/index.jsx"))
-const Корзина = lazy(() => import("../page/Корзина/index.jsx"))
-const Избранные = lazy(() => import("../page/Избранные/index.jsx"))
+const ProductDetail = lazy(() => import("../page/Product/index.jsx"));
+const Корзина = lazy(() => import("../page/Корзина/index.jsx"));
+const Избранные = lazy(() => import("../page/Избранные/index.jsx"));
+
+const NotFound = lazy(() => import("../page/Error/index.jsx"));
 
 function AppRouter() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          {" "}
           <Route index element={<Home />} />
           <Route path="popular-products" element={<PopularProducts />} />
           <Route path="Блог" element={<Блог />} />
@@ -31,9 +32,10 @@ function AppRouter() {
           <Route path="o_кoмпaнии" element={<О_компании />} />
           <Route path="Каталог" element={<Каталог />} />
           <Route path="product/:id" element={<ProductDetail />} />
-          <Route path="Корзина" element={<Корзина />} />    
+          <Route path="Корзина" element={<Корзина />} />
           <Route path="Избранные" element={<Избранные />} />
 
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>

@@ -20,4 +20,4 @@ export const ProductDetal = styled.div `
         height: 600px;
     }
     
-    `
+`
