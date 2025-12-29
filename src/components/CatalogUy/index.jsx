@@ -1,62 +1,96 @@
 import React from "react";
-import { CatalogUy } from "./CatalogUy.styled";
-import { Strelka, Strelka1 } from "../icons";
-
-
-import uy1 from "../../assets/rasim_3/uy1.png";
-import uy2 from "../../assets/rasim_3/uy2.png";
-import uy3 from "../../assets/rasim_3/uy3.png";
-import { WhySection } from "../NornLight/NornLight.styled";
 import { useAppNavigation } from "../../hooks/useAppNavigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import { BlogWrapper } from "./CatalogUy.styled";
 
+import house1 from "../../assets/rasim_3/uy1.png";
+import house2 from "../../assets/rasim_3/uy2.png";
+import house3 from "../../assets/rasim_3/uy3.png";
 
-
-function CatalogUy1({ showHeader = true }) {
-
+function CatalogUy({ showHeader = true, showBottom = true }) {
   const { goToBlog } = useAppNavigation();
 
+  const blogs = [
+    {
+      img: house1,
+      title: "Как правильно освещать дом снаружи?",
+      date: "01.01.2024",
+    },
+    {
+      img: house2,
+      title: "Как правильно освещать дом снаружи?",
+      date: "01.01.2024",
+    },
+    {
+      img: house3,
+      title: "Как правильно освещать дом снаружи?",
+      date: "01.01.2024",
+    },
+  ];
+
   return (
-    <div>
+    <BlogWrapper>
+
       {showHeader && (
-        <WhySection style={{ marginTop: "100px" }}>
-          <div className="header">
-            <h2>Блог</h2>
-            <button onClick={goToBlog}>
-              Перейти в блог <Strelka />
-            </button>
-          </div>
-        </WhySection>
+        <div className="section-header">
+          <h2>Блог</h2>
+
+          <button className="header-btn" onClick={goToBlog}>
+            Перейти в блог <span>→</span>
+          </button>
+        </div>
       )}
-      <CatalogUy>
-        <div className="wrapper">
-          <img src={uy1} alt="" />
-          <div className="Catalog">
-            <p>Как правильно освещать дом снаружи?</p>
-            <Strelka1 />
-          </div>
-          <span>01.01.2024</span>
-        </div>
 
-        <div className="wrapper">
-          <img src={uy2} alt="" />
-          <div className="Catalog">
-            <p>Как правильно освещать дом снаружи?</p>
-            <Strelka1 />
+      <div className="desktop-grid">
+        {blogs.map((item, index) => (
+          <div className="blog-card" key={index}>
+            <img src={item.img} alt="" />
+            <div className="info">
+              <h3>{item.title}</h3>
+              <span>↗</span>
+            </div>
+            <span className="date">{item.date}</span>
           </div>
-          <span>01.01.2024</span>
-        </div>
+        ))}
+      </div>
 
-        <div className="wrapper">
-          <img src={uy3} alt="" />
-          <div className="Catalog">
-            <p>Как правильно освещать дом снаружи?</p>
-            <Strelka1 />
-          </div>
-          <span>01.01.2024</span>
-        </div>
-      </CatalogUy>
-    </div>
+      <div className="mobile-slider">
+        <Swiper
+          modules={[Pagination]}
+          spaceBetween={15}
+          slidesPerView={1}
+          pagination={
+            showBottom ? { clickable: true, el: ".blog-pagination" } : false
+          }
+        >
+          {blogs.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="blog-card">
+                <img src={item.img} alt="" />
+                <div className="info">
+                  <h3>{item.title}</h3>
+                  <span>↗</span>
+                </div>
+                <span className="date">{item.date}</span>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {showBottom && (
+          <>
+            <div className="blog-pagination"></div>
+            <button className="mobile-btn" onClick={goToBlog}>
+              Перейти в блог <span>→</span>
+            </button>
+          </>
+        )}
+      </div>
+    </BlogWrapper>
   );
 }
 
-export default CatalogUy1;
+export default CatalogUy;

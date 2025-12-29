@@ -1,15 +1,17 @@
 import React from "react";
-import { Kompany, Task } from "./О_компании.styled";
+import { Kompany, Task, ContentWrapper } from "./О_компании.styled";
 import { useAppNavigation } from "../../hooks/useAppNavigation";
 import { Strelka_ongga } from "../../components";
-import Section2 from "../../components/Section2";
-import CatalogUy1 from "../../components/CatalogUy";
+import Section2 from "../../components/Section2"; // Brands
+import CatalogUy from "../../components/CatalogUy"; // Blog
+import Text from "../../components/Text"; // Footer Text
 
-function О_компании(props) {
+function О_компании() {
   const { goToHome } = useAppNavigation();
 
   return (
-    <div>
+    <div className="container">
+      {/* Breadcrumb */}
       <Kompany>
         <div className="Katalog_strelka">
           <p onClick={goToHome}>Главная</p>
@@ -19,59 +21,63 @@ function О_компании(props) {
       </Kompany>
 
       <Task>
-        <div>
-          <h1>О компании</h1>
-          <div className="task_1">
-            <p>170+ </p>
-            <p className="tavar">Товаров</p>
-          </div>
-          <div className="task_1">
-            <p>1000+ </p>
-            <p className="tavar">Довольных покупателей</p>
-          </div>
-          <div className="task_1">
-            <p>170+ </p>
-            <p className="tavar">Товаров</p>
-          </div>
-        </div>
-        <div className="text_p">
-          <p>
-            Интернет-магазин NORNLIGHT предлагает широкий ассортимент
-            светильников для освещения вашего дома или офиса. У нас вы найдете
-            разнообразные модели светильников, от современных и стильных до
-            классических и элегантных. Мы предлагаем качественные и надежные
-            светильники от лучших производителей, которые подарят вам комфорт и
-            уют.
-          </p>
-          <p>
-            Покупая светильники в нашем интернет-магазине, вы получаете отличное
-            соотношение цены и качества. Мы осуществляем доставку по всей
-            России, чтобы каждый клиент мог насладиться прекрасным светом и
-            удобством покупки онлайн. Обратитесь к нам сегодня и превратите ваш
-            дом в оазис тепла и света с NORNLIGHT!
-          </p>
-          <p>
-            Интернет-магазин NORNLIGHT предлагает широкий ассортимент
-            светильников для освещения вашего дома или офиса. У нас вы найдете
-            разнообразные модели светильников, от современных и стильных до
-            классических и элегантных. Мы предлагаем качественные и надежные
-            светильники от лучших производителей, которые подарят вам комфорт и
-            уют.
-          </p>
+        {/* Mobil Sarlavha */}
+        <h1 className="mobile-title">О компании</h1>
 
-          <p>
-            Покупая светильники в нашем интернет-магазине, вы получаете отличное
-            соотношение цены и качества. Мы осуществляем доставку по всей
-            России, чтобы каждый клиент мог насладиться прекрасным светом и
-            удобством покупки онлайн. Обратитесь к нам сегодня и превратите ваш
-            дом в оазис тепла и света с NORNLIGHT!
-          </p>
-        </div>
+        <ContentWrapper>
+          {/* Chap ustun */}
+          <div className="stats-column">
+            <h1 className="desktop-title">О компании</h1>
+
+            <div className="stat-card">
+              <span className="number">170+</span>
+              <span className="label">Товаров</span>
+            </div>
+            <div className="stat-card">
+              <span className="number">1000+</span>
+              <span className="label">Довольных покупателей</span>
+            </div>
+            <div className="stat-card">
+              <span className="number">170+</span>
+              <span className="label">Товаров</span>
+            </div>
+          </div>
+
+          {/* O'ng ustun (Matnlar) */}
+          <div className="text-column">
+            <p>
+              Интернет-магазин NORNLIGHT предлагает широкий ассортимент
+              светильников для освещения вашего дома или офиса. У нас вы найдете
+              разнообразные модели светильников, от современных и стильных до
+              классических и элегантных.
+            </p>
+            <p>
+              Покупая светильники в нашем интернет-магазине, вы получаете
+              отличное соотношение цены и качества. Мы осуществляем доставку по
+              всей России, чтобы каждый клиент мог насладиться прекрасным
+              светом.
+            </p>
+            <p>
+              Интернет-магазин NORNLIGHT предлагает широкий ассортимент
+              светильников для освещения вашего дома или офиса. У нас вы найдете
+              разнообразные модели светильников.
+            </p>
+            <p>
+              Покупая светильники в нашем интернет-магазине, вы получаете
+              отличное соотношение цены и качества. Мы осуществляем доставку по
+              всей России.
+            </p>
+          </div>
+        </ContentWrapper>
       </Task>
 
       <Section2 />
 
-      <CatalogUy1 />
+      <CatalogUy showHeader={true} />
+
+      <div style={{ marginTop: "40px" }}>
+        <Text />
+      </div>
     </div>
   );
 }

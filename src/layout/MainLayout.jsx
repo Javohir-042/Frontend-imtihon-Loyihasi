@@ -9,7 +9,7 @@ function MainLayout(props) {
 
   const decodedPath = decodeURIComponent(pathname);
 
-  const noWrapperRoutes = ["/Доставка"];
+  const noWrapperRoutes = ["/Доставка", "/Контакты", "/"];
 
   const isNoWrapper = noWrapperRoutes.includes(decodedPath);
   return (

@@ -1,5 +1,4 @@
 import React from "react";
-import hero_lamp from "../../assets/svg/hero-lamp.svg";
 import {
   HomePage,
   Homes
@@ -9,29 +8,18 @@ import CatalogUy1 from "../../components/CatalogUy";
 
 import Text from "../../components/Text";
 import Lamp from "../../components/Lamp";
-import NornLight from "../../components/NornLight";
+import NornLight from "../../components/NornLight/index";
 import Section from "../../components/Section";
 import Katalogss from "../../components/Katalog";
+import Skidka from "./Skidka";
 
 
 function Home() {
 
   return (
     <Homes>
+      <Skidka />
       <div className="controller">
-        <HomePage>
-          <div className="Home_div">
-            <p>Скидка 15%</p>
-            <p>на все подвесные</p>
-            <p>светильники</p>
-            <p className="Home_color">до 5 февраля</p>
-          </div>
-          <div className="Home_img">
-            <img src={hero_lamp} alt="Hero lamp" />
-          </div>
-        </HomePage>
-        
-
         <Katalogss />
 
         <NornLight />
@@ -40,7 +28,7 @@ function Home() {
 
         <Section />
 
-        <CatalogUy1 />
+        <CatalogUy1 showHeader={true} showBottom={true} />
 
         <Text />
       </div>

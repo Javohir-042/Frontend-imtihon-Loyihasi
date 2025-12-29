@@ -1,3 +1,5 @@
+
+
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { textColors } from "../../../../theme";
@@ -6,13 +8,19 @@ export const NavTopWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 15px 0; 
+    
+    @media (max-width: 800px) {
+        display: none; 
+    }
 `;
 
 export const NavTopSide = styled.div`
     display: flex;
-    gap: 27px;
+    gap: 25px;
 `;
+
+
 
 export const CustomNavLink = styled(NavLink)`
     font-size: 14px;

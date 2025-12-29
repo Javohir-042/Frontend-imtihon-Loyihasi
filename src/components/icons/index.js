@@ -11,3 +11,7 @@ export { default as Right } from './src/Right.icon';
 export { default as Strelka1 } from './src/Strelka1.icon';
 export { default as Strelka_ongga } from './src/>.icon';
 export { default as Lampa } from './src/lampa.icon';
+export { default as DeleteIcon } from './src/DeleteIcon.icon';
+export { default as mobile_1 } from './src/mobile_1.icon';
+export { default as X } from './src/X.icon';
+export { default as UpRight } from './src/UpRight';

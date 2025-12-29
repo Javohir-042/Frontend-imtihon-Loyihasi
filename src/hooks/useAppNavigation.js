@@ -7,8 +7,14 @@ export const useAppNavigation = () => {
         goToHome: () => navigate("/"),
         goToAbout: () => navigate("/o_кoмпaнии"),
         goToPopular: () => navigate("/popular-products"), 
-        goToCatalog: () => navigate("/catalog"),
+        goToCatalog: () => navigate("/Каталог"),
         goToBlog: () => navigate("/Блог"),
-        goToKatalog: () => navigate("/Каталог")
+        goToKatalog: () => navigate("/Каталог"),
+        goToКорзина: () => navigate("/Корзина"),
+        goToDelivery: () => navigate("/Доставка"),
+        goToReturn: () => navigate("/Возврат"),
+        goToWarranty: () => navigate("/Гарантии"),
+        goToContacts: () => navigate("/Контакты"),
+        goToИзбранные: () => navigate("/Избранные")
     };
 };

@@ -31,6 +31,37 @@ export const Дocтaвкa = styled.div`
     }
 
     & span{
-        color: #2f4da3;;
+        color: #2f4da3;
     }
-` 
+
+    @media (max-width: 1332px) {
+        flex-direction: column; 
+        padding-top: 10px;
+
+        .wrapper_1 {
+            width: 100%;
+            height: auto;
+            margin-right: 0;
+            
+            h1 {
+                font-size: 28px; 
+                line-height: 1.2;
+                padding-bottom: 20px;
+            }
+        }
+
+        .wrapper_2 {
+            width: 100%;
+            
+            div h1 {
+                font-size: 20px;
+                padding-top: 10px;
+            }
+
+            p {
+                font-size: 16px;
+                padding: 10px 0 20px; 
+            }
+        }
+    }
+`

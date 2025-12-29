@@ -11,8 +11,15 @@ export const Дocтaвкa_и = styled.div`
             color: #bbb8b8ff;
             cursor: pointer;
         }
-    }
 
+        @media (max-width: 1332px) {
+            margin-top: 20px;
+            gap: 8px;
+            & p, & span {
+                font-size: 12px;
+            }
+        }
+    }
 `
 
 export const Tashqi = styled.div`

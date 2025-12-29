@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const BrandsSection = styled.section`
-  margin-top: 100px;
+  margin-top: 80px;
   padding: 0 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 
   .brands-header {
     display: flex;
@@ -14,29 +17,37 @@ export const BrandsSection = styled.section`
       font-size: 32px;
       font-weight: 700;
       color: #333;
+      white-space: nowrap; 
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+        white-space: normal; 
+      }
     }
 
     .arrows {
       display: flex;
+      gap: 10px;
+
+      /* Mobilda strelkalarni yashiramiz */
+      @media (max-width: 768px) {
+        display: none; 
+      }
 
       button {
-        background-color: transparent;
+        background: transparent;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
         cursor: pointer;
-        transition: 0.3s;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%; 
-        border: none;
-        
-        width: 45px;  
-        height: 45px;
+        transition: 0.3s;
+        border: 1px solid transparent; /* Ramka qo'shildi */
 
-        
-        
-        svg {
-          width: 28px;
-          height: 28px;
+        &:hover {
+          border-color: #333;
         }
       }
     }
@@ -44,7 +55,35 @@ export const BrandsSection = styled.section`
 
   .brands-slider {
     width: 100%;
-    padding: 10px 0;
+    padding-bottom: 20px; /* Pagination uchun joy */
+  }
+
+  /* Reactdagi className bilan bir xil bo'lishi kerak (.brands-pagination) */
+  .brands-pagination {
+    display: none;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 8px;
+
+    /* Faqat mobilda chiqadi */
+    @media (max-width: 768px) {
+      display: flex;
+    }
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #D9D9D9;
+      opacity: 1;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #333;
+      transform: scale(1.2);
+    }
   }
 `;
 
@@ -54,25 +93,27 @@ export const BrandCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  transition: 0.3s;
+  border-radius: 8px;
   background: #fff;
+  padding: 15px;
+  box-sizing: border-box; 
 
   img {
     max-width: 100%;
-    max-height: 80px;
+    max-height: 100%;
+    object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.6;
-    transition: 0.4s ease;
+    transition: 0.3s;
   }
-
-  &:hover {
-    border-color: #333;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    
-    img {
+  
+  /* Sichqoncha borganda rangi chiqishi uchun */
+  &:hover img {
       filter: grayscale(0);
       opacity: 1;
-    }
+  }
+
+  @media (max-width: 768px) {
+    height: 100px;
   }
 `;

@@ -1,14 +1,15 @@
-import React from 'react';
-import { 
-    NavTopWrapper, 
-    CustomNavLink, 
-    NavTopSide, 
-    OrderPhoneButton, 
-    PhoneLink 
-} from './NavbarTop.styled';
+import React from "react";
+import {
+  NavTopWrapper,
+  CustomNavLink,
+  NavTopSide,
+  OrderPhoneButton,
+  PhoneLink,
+} from "./NavbarTop.styled";
 
 function NavbarTop(props) {
-    return (
+  return (
+    <div className="container">
       <NavTopWrapper>
         <NavTopSide>
           <CustomNavLink to="/o_кoмпaнии">О компании</CustomNavLink>
@@ -23,7 +24,8 @@ function NavbarTop(props) {
           <OrderPhoneButton>Заказать звонок</OrderPhoneButton>
         </NavTopSide>
       </NavTopWrapper>
-    );
+    </div>
+  );
 }
 
 export default NavbarTop;

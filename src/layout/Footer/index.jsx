@@ -10,38 +10,50 @@ import {
 import PaymentLogos from "../../assets/payments.png";
 import { VK } from "../../components";
 
-function Footer(props) {
+function Footer() {
   return (
     <FooterWrapper>
       <div className="container">
         <FooterWrapper_1>
+          {/* Logo va Kontakt qismi */}
           <FooterLogo>
-            <img src="/logo-foot.svg" alt="Logo Footer" />
-            <a className="a1" >
+            <img src="/logo-foot.svg" alt="NORNLIGHT" className="logo-img" />
+            <a className="a1" href="tel:88008904656">
               8 (800) 890-46-56
             </a>
 
-            <img src={PaymentLogos} alt="Payments" />
+            <img
+              src={PaymentLogos}
+              alt="Visa, Mastercard, Mir"
+              className="payment-img"
+            />
 
-            <a className="a2" href="/">Политика конфидециальности</a>
-            <a href="/">Пользовательское соглашение</a>
+            <a className="legal-link" href="/">
+              Политика конфиденциальности
+            </a>
+            <a className="legal-link" href="/">
+              Пользовательское соглашение
+            </a>
+
             <FooterVK>
               <VK />
               <VK />
               <VK />
             </FooterVK>
           </FooterLogo>
+
+          {/* Xaridorlar uchun */}
           <div>
             <h1>Покупателям</h1>
-            <div>
-              <p>О компании</p>
-              <p>Доставка и оплата</p>
-              <p>Возврат</p>
-              <p>Гарантии</p>
-              <p>Контакты</p>
-              <p>Блог</p>
-            </div>
+            <p>О компании</p>
+            <p>Доставка и оплата</p>
+            <p>Возврат</p>
+            <p>Гарантии</p>
+            <p>Контакты</p>
+            <p>Блог</p>
           </div>
+
+          {/* Mahsulotlar */}
           <div>
             <h1>Товары</h1>
             <Footer_div2>
@@ -50,7 +62,7 @@ function Footer(props) {
                 <p>Светильники</p>
                 <p>Бра</p>
                 <p>Торшеры</p>
-                <p>Комплектуюшие</p>
+                <p>Комплектующие</p>
                 <p>Настольные лампы</p>
               </div>
               <div>

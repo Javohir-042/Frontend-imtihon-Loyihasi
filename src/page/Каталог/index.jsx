@@ -1,90 +1,88 @@
-import React from "react";
-import { CatalogCard, CatalogGrid, CatalogGrid1, Katalog } from "./Каталог.styled";
-import { Strelka_ongga } from "../../components";
-import { useAppNavigation } from "../../hooks/useAppNavigation";
+import React, { useState } from "react";
+import * as S from "./ProductDetail.styled";
+import { RightArr } from "../../components";
+import productImg from "../../assets/lusters/catalog1.png"; // O'zingizni rasmingizni qo'ying
 
-import a1 from "../../assets/chandeliers/a1.svg";
-import a2 from "../../assets/chandeliers/a2.svg";
-import a3 from "../../assets/chandeliers/a3.svg";
-import a4 from "../../assets/chandeliers/a4.svg";
-import a5 from "../../assets/chandeliers/a5.svg";
-import a6 from "../../assets/chandeliers/a6.svg";
-import a7 from "../../assets/chandeliers/a7.svg";
-import a8 from "../../assets/chandeliers/a8.svg";
-import a9 from "../../assets/chandeliers/a9.svg";
-import a10 from "../../assets/chandeliers/a10.svg";
-import a11 from "../../assets/chandeliers/a11.svg";
-import Section2 from "../../components/Section2";
-import CatalogUy1 from "../../components/CatalogUy";
-import Text from "../../components/Text";
-
-function Каталог(props) {
-  const { goToHome } = useAppNavigation();
+export default function ProductDetail() {
+  const [count, setCount] = useState(1);
 
   return (
     <div className="container">
-      <Katalog>
-        <div className="Katalog_p">
-          <p>Светильники</p>
-          <p>Люстры</p>
-          <p>Лампы</p>
-          <p>Настольные лампы</p>
-          <p>Ночники</p>
-          <p>Подстветка</p>
-          <p>Уличное освещение</p>
-          <p>Мебельные установки</p>
+      <S.ProductWrapper>
+        <div className="navigate">
+          <p>Главная</p> <RightArr />
+          <p>Каталог</p> <RightArr />
+          <p>Встраиваемый светильник</p>
         </div>
-        <div className="Katalog_strelka">
-          <p onClick={goToHome}>Главная</p>
-          <Strelka_ongga />
-          <p>Каталог</p>
-        </div>
-        <div className="Katalog_h1">
-          <h1>Каталог</h1>
-        </div>
-        <CatalogGrid>
-          {[a1, a2, a3, a4, a5, a6, a7, a8, a9].map((img, index) => (
-            <CatalogCard key={index}>
-              <p className="title">
-                {
-                  [
-                    "Люстры",
-                    "Светильники",
-                    "Бра",
-                    "Торшеры",
-                    "Настольные лампы",
-                    "Споты",
-                    "Трековые светильники",
-                    "Уличные светильники",
-                    "Технические светильники",
-                  ][index]
-                }
-              </p>
-              <img src={img} alt="Catalog item" />
-              <span>От 540₽ →</span>
-            </CatalogCard>
-          ))}
-        </CatalogGrid>
-        <CatalogGrid1>
-          {[a10, a11].map((img, index) => (
-            <CatalogCard key={index}>
-              <p className="title">
-                {["Светодиодные ленты", "Комплектуюшие"][index]}
-              </p>
-              <img src={img} alt="Catalog item" />
-              <span>От 540₽ →</span>
-            </CatalogCard>
-          ))}
-        </CatalogGrid1>
 
-        <Section2 />
+        <S.ProductContentGrid>
+          <S.ImageSection>
+            <S.MainImage>
+              <img src={productImg} alt="Product" />
+            </S.MainImage>
+          </S.ImageSection>
 
-        <CatalogUy1 />
+          <S.InfoSection>
+            <h1>Встраиваемый светильник Novotech</h1>
 
-        <Text />
-      </Katalog>
+            <S.MetaInfo>
+              <span>Артикул: 7655-188</span>
+              <span className="status">В наличии</span>
+            </S.MetaInfo>
+
+            <S.PriceRow>
+              <span className="current">435 000 ₽</span>
+              <span className="old">522 000 ₽</span>
+            </S.PriceRow>
+
+            <p style={{ fontSize: "14px", color: "#666", lineHeight: "1.5" }}>
+              Профессиональный осветительный прибор для создания акцентного
+              освещения в современном интерьере. Высокое качество материалов.
+            </p>
+
+            <S.ActionContainer>
+              <S.Counter>
+                <button onClick={() => count > 1 && setCount(count - 1)}>
+                  −
+                </button>
+                <input type="text" value={count} readOnly />
+                <button onClick={() => setCount(count + 1)}>+</button>
+              </S.Counter>
+
+              <S.CartButton>В корзину</S.CartButton>
+
+              <S.FavoriteBtn>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </S.FavoriteBtn>
+            </S.ActionContainer>
+          </S.InfoSection>
+        </S.ProductContentGrid>
+
+        <S.CharacteristicsTable>
+          <h3>Характеристика</h3>
+          <div className="row">
+            <span className="label">Цвет</span>
+            <span className="value">Желтый</span>
+          </div>
+          <div className="row">
+            <span className="label">Год</span>
+            <span className="value">2016</span>
+          </div>
+          <div className="row">
+            <span className="label">Страна</span>
+            <span className="value">Швейцария</span>
+          </div>
+        </S.CharacteristicsTable>
+      </S.ProductWrapper>
     </div>
   );
 }
-
-export default Каталог;

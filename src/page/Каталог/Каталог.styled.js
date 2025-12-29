@@ -1,95 +1,166 @@
 import styled from "styled-components";
 
-export const Katalog = styled.div `
+export const ProductWrapper = styled.div`
+  width: 100%;
+  padding-bottom: 50px;
 
-    
-    .Katalog_p{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 52px;
-        font-weight: 600;
-        font-size: 16px;
-        color: #454545;
-        background-color: #f3f2f2ff;
-        width: 1301px;
-        height: 44px;
-        border-radius: 50px;
-        margin-top: -50px;
+  .navigate {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 15px 0;
+    flex-wrap: wrap;
 
-        & p:hover{
-            color: #a7a1a1ff;
-            cursor: pointer;
-        }
+    p {
+      font-size: 12px;
+      margin: 0;
+      cursor: pointer;
+      color: #808080;
+      &:last-child { color: #111; }
     }
+  }
+`;
 
-    .Katalog_strelka{
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-top: 48px;
-
-        & p:hover{
-            color: #bbb8b8ff;
-            cursor: pointer;
-        }
-    }
-
-    .Katalog_h1{
-        font-weight: 700;
-        font-size: 34px;
-        line-height: 110%;
-        text-transform: capitalize;
-        margin-top: 20px;
-        margin-bottom: 60px;
-    }
-    
-`
-
-export const CatalogGrid = styled.div`
+export const ProductContentGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Mobil qurilmada ustun bitta bo'ladi */
+    gap: 20px;
+  }
 `;
 
-export const CatalogCard = styled.div`
-  background-color: #f6f6f6;
-  border-radius: 20px;
-  padding: 30px;
-  height: 250px;
-  position: relative;
-  transition: 0.3s;
+export const ImageSection = styled.div`
+  width: 100%;
+`;
 
-
-  &:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  }
-
-  .title {
-    font-size: 20px;
-    font-weight: 600;
-  }
-
+export const MainImage = styled.div`
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #fff;
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   img {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-  }
-
-  span {
-    position: absolute;
-    left: 30px;
-    bottom: 30px;
-    font-size: 14px;
-    color: #888;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
   }
 `;
 
+export const InfoSection = styled.div`
+  display: flex;
+  flex-direction: column;
 
-export const CatalogGrid1 = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    padding-top: 20px;
-    margin-bottom: 106px;
-`
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #111;
+  }
+`;
+
+export const MetaInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: #808080;
+
+  .status { color: #4CAF50; font-weight: 500; }
+`;
+
+export const PriceRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  .current { font-size: 28px; font-weight: 700; color: #111; }
+  .old { font-size: 16px; color: #b3b3b3; text-decoration: line-through; }
+`;
+
+export const ActionContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap; /* Kichik telefonlarda elementlar pastga tushadi */
+  }
+`;
+
+export const Counter = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  height: 45px;
+
+  button {
+    width: 35px;
+    height: 100%;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  input {
+    width: 40px;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    outline: none;
+  }
+`;
+
+export const CartButton = styled.button`
+  flex: 1;
+  height: 45px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  
+  &:hover { background: #111; }
+`;
+
+export const FavoriteBtn = styled.button`
+  width: 45px;
+  height: 45px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
+export const CharacteristicsTable = styled.div`
+  margin-top: 40px;
+  
+  h3 { margin-bottom: 20px; font-size: 18px; }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #f9f9f9;
+    margin-bottom: 2px;
+    
+    .label { font-size: 12px; color: #808080; margin-bottom: 4px; }
+    .value { font-size: 14px; color: #111; }
+  }
+`;
