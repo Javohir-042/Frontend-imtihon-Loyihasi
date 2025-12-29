@@ -1,166 +1,219 @@
 import styled from "styled-components";
 
-export const ProductWrapper = styled.div`
-  width: 100%;
-  padding-bottom: 50px;
+export const Container = styled.div`
+  max-width: 1332px;
+  margin: 0 auto;
+  padding: 20px;
 
-  .navigate {
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+
+  .Section_img{
+
+    @media (max-width: 600px){
+      display: none;
+    }
+  }
+
+  .Katalog_strelka {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin: 15px 0;
-    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #999;
+    font-size: 14px;
+    margin-top: 48px;
 
-    p {
+    @media (max-width: 768px) {
+      margin-top: 0;
+      margin-bottom: 16px;
       font-size: 12px;
+    }
+
+    p { 
       margin: 0;
-      cursor: pointer;
-      color: #808080;
-      &:last-child { color: #111; }
+      &:hover {
+        color: #666;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+
+    @media (max-width: 768px) { 
+      font-size: 24px;
+      margin-bottom: 20px;
+      margin-top: 8px;
     }
   }
 `;
 
-export const ProductContentGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* Mobil qurilmada ustun bitta bo'ladi */
-    gap: 20px;
-  }
-`;
-
-export const ImageSection = styled.div`
-  width: 100%;
-`;
-
-export const MainImage = styled.div`
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: #fff;
-  border: 1px solid #f2f2f2;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  img {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-  }
-`;
-
-export const InfoSection = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  h1 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #111;
-  }
-`;
-
-export const MetaInfo = styled.div`
+export const FilterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  font-size: 13px;
-  color: #808080;
+  background: #f3f3f3;
+  border-radius: 50px;
+  padding: 5px 25px;
+  margin-bottom: 57px;
+  overflow-x: auto; 
+  margin-top: -90px;
 
-  .status { color: #4CAF50; font-weight: 500; }
-`;
+  &::-webkit-scrollbar { 
+    display: none; 
+  }
 
-export const PriceRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-
-  .current { font-size: 28px; font-weight: 700; color: #111; }
-  .old { font-size: 16px; color: #b3b3b3; text-decoration: line-through; }
-`;
-
-export const ActionContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-top: 20px;
-
-  @media (max-width: 480px) {
-    flex-wrap: wrap; /* Kichik telefonlarda elementlar pastga tushadi */
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
-export const Counter = styled.div`
-  display: flex;
-  align-items: center;
-  border: 1px solid #e2e2e2;
-  border-radius: 4px;
-  height: 45px;
-
-  button {
-    width: 35px;
-    height: 100%;
-    border: none;
-    background: none;
-    font-size: 18px;
-    cursor: pointer;
-  }
-
-  input {
-    width: 40px;
-    border: none;
-    text-align: center;
-    font-size: 14px;
-    outline: none;
-  }
-`;
-
-export const CartButton = styled.button`
-  flex: 1;
-  height: 45px;
-  background: #333;
-  color: white;
+export const FilterItem = styled.button`
+  background: none;
   border: none;
-  border-radius: 4px;
-  font-weight: 500;
+  padding: 12px 15px;
   cursor: pointer;
+  font-size: 14px;
   white-space: nowrap;
-  
-  &:hover { background: #111; }
+  transition: all 0.3s ease;
+  color: ${props => props.$active ? "#333" : "#888"};
+  font-weight: ${props => props.$active ? "600" : "400"};
+
+  &:hover { 
+    color: #333; 
+  }
 `;
 
-export const FavoriteBtn = styled.button`
-  width: 45px;
-  height: 45px;
-  border: 1px solid #e2e2e2;
-  border-radius: 4px;
-  background: white;
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+`;
+
+export const Card = styled.div`
+  /* DESKTOP (1-rasm) */
+  grid-column: ${props => props.isWide ? "span 3" : "span 2"};
+  background: #f6f6f6;
+  border-radius: 20px;
+  padding: 20px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: 768px) {
+    /* MOBILE */
+    grid-column: span 1;
+    height: 160px;
+    border-radius: 12px;
+    padding: 12px;
+    
+    /* 9 va 10 yonma-yon */
+    &:nth-child(9),
+    &:nth-child(10) {
+      grid-column: span 1;
+    }
+    
+    /* 11 pastda 2 ustunni to'ldiradi */
+    &:nth-child(11) {
+      grid-column: span 2;
+      height: 180px;
+    }
+  }
+`;
+
+export const CardTitle = styled.h3`
+  font-size: 20px;
+  margin: 0 0 auto 0;
+  color: #454545;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+  line-height: 1.3;
+  max-width: 65%;
+
+  @media (max-width: 768px) { 
+    font-size: 13px;
+    font-weight: 500;
+    max-width: 55%;
+    line-height: 1.2;
+    
+    /* Mobile da barcha text "Люстры" */
+    &::before {
+      content: "Люстры";
+    }
+    
+    /* Asl textni yashirish */
+    font-size: 0;
+    
+    &::before {
+      font-size: 13px;
+    }
+  }
+`;
+
+export const Image = styled.img`
+  position: absolute;
+  right: 20px;
+  bottom: 50px;
+  width: auto;
+  height: 120px;
+  object-fit: contain;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    right: 10px;
+    bottom: 32px;
+    height: 70px;
+    max-width: 45%;
+  }
+`;
+
+export const PriceLink = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  font-size: 14px;
+  color: #888;
+  margin-top: auto;
+  z-index: 2;
   cursor: pointer;
+  font-weight: 500;
+  position: relative;
+
+  span {
+    color: #888;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+  }
 `;
 
-export const CharacteristicsTable = styled.div`
-  margin-top: 40px;
-  
-  h3 { margin-bottom: 20px; font-size: 18px; }
+export const ArrowIcon = styled.span`
+  font-size: 16px;
+  line-height: 1;
+  color: #888;
+  margin-left: 4px;
 
-  .row {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background: #f9f9f9;
-    margin-bottom: 2px;
-    
-    .label { font-size: 12px; color: #808080; margin-bottom: 4px; }
-    .value { font-size: 14px; color: #111; }
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;

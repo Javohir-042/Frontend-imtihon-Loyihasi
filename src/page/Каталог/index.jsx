@@ -1,88 +1,96 @@
 import React, { useState } from "react";
-import * as S from "./ProductDetail.styled";
-import { RightArr } from "../../components";
-import productImg from "../../assets/lusters/catalog1.png"; // O'zingizni rasmingizni qo'ying
+import * as S from "./Каталог.styled.js";
+import a1 from "../../assets/chandeliers/a1.svg";
+import a2 from "../../assets/chandeliers/a2.svg";
+import a3 from "../../assets/chandeliers/a3.svg";
+import a4 from "../../assets/chandeliers/a4.svg";
+import a5 from "../../assets/chandeliers/a5.svg";
+import a6 from "../../assets/chandeliers/a6.svg";
+import a7 from "../../assets/chandeliers/a7.svg";
+import a8 from "../../assets/chandeliers/a8.svg";
+import a9 from "../../assets/chandeliers/a9.svg";
+import a10 from "../../assets/chandeliers/a10.svg";
+import a11 from "../../assets/chandeliers/a11.svg";
+import { Strelka_ongga } from "../../components";
+import { useAppNavigation } from "../../hooks/useAppNavigation";
+import Section from "../../components/Section/index.jsx";
+import CatalogUy from "../../components/CatalogUy/index.jsx";
+import Text from "../../components/Text/index.jsx";
 
-export default function ProductDetail() {
-  const [count, setCount] = useState(1);
+const filterCategories = [
+  "Светильники",
+  "Люстры",
+  "Лампы",
+  "Настольные лампы",
+  "Ночники",
+  "Подсветка",
+  "Уличное освещение",
+  "Мебельные установки",
+];
+
+const catalogData = [
+  { id: 1, title: "Люстры", price: "540", img: a1 },
+  { id: 2, title: "Светильники", price: "540", img: a2 },
+  { id: 3, title: "Бра", price: "540", img: a3 },
+  { id: 4, title: "Торшеры", price: "540", img: a4 },
+  { id: 5, title: "Настольные лампы", price: "540", img: a5 },
+  { id: 6, title: "Споты", price: "540", img: a6 },
+  { id: 7, title: "Трековые светильники", price: "540", img: a7 },
+  { id: 8, title: "Уличные светильники", price: "540", img: a8 },
+  { id: 9, title: "Технические светильники", price: "540", img: a9 },
+  { id: 10, title: "Светодиодные ленты", price: "540", img: a10, wide: true },
+  { id: 11, title: "Комплектующие", price: "540", img: a11, wide: true },
+];
+
+const Catalog = () => {
+  const { goToHome } = useAppNavigation();
+  const [activeTab, setActiveTab] = useState("Светильники");
 
   return (
-    <div className="container">
-      <S.ProductWrapper>
-        <div className="navigate">
-          <p>Главная</p> <RightArr />
-          <p>Каталог</p> <RightArr />
-          <p>Встраиваемый светильник</p>
-        </div>
+    <S.Container>
+      <S.FilterWrapper>
+        {filterCategories.map((cat) => (
+          <S.FilterItem
+            key={cat}
+            $active={activeTab === cat}
+            onClick={() => setActiveTab(cat)}
+          >
+            {cat}
+          </S.FilterItem>
+        ))}
+      </S.FilterWrapper>
 
-        <S.ProductContentGrid>
-          <S.ImageSection>
-            <S.MainImage>
-              <img src={productImg} alt="Product" />
-            </S.MainImage>
-          </S.ImageSection>
+      <div className="Katalog_strelka">
+        <p onClick={goToHome} style={{ cursor: "pointer" }}>
+          Главная
+        </p>
+        <Strelka_ongga />
+        <p>Каталог</p>
+      </div>
 
-          <S.InfoSection>
-            <h1>Встраиваемый светильник Novotech</h1>
+      <h1>Каталог</h1>
 
-            <S.MetaInfo>
-              <span>Артикул: 7655-188</span>
-              <span className="status">В наличии</span>
-            </S.MetaInfo>
+      <S.Grid>
+        {catalogData.map((item) => (
+          <S.Card key={item.id} isWide={item.wide}>
+            <S.CardTitle>{item.title}</S.CardTitle>
+            <S.Image src={item.img} alt={item.title} />
+            <S.PriceLink>
+              <span>От {item.price}₽</span>
+              <S.ArrowIcon>→</S.ArrowIcon>
+            </S.PriceLink>
+          </S.Card>
+        ))}
+      </S.Grid>
 
-            <S.PriceRow>
-              <span className="current">435 000 ₽</span>
-              <span className="old">522 000 ₽</span>
-            </S.PriceRow>
+      <div className="Section_img">
+        <Section />
+      </div>
 
-            <p style={{ fontSize: "14px", color: "#666", lineHeight: "1.5" }}>
-              Профессиональный осветительный прибор для создания акцентного
-              освещения в современном интерьере. Высокое качество материалов.
-            </p>
-
-            <S.ActionContainer>
-              <S.Counter>
-                <button onClick={() => count > 1 && setCount(count - 1)}>
-                  −
-                </button>
-                <input type="text" value={count} readOnly />
-                <button onClick={() => setCount(count + 1)}>+</button>
-              </S.Counter>
-
-              <S.CartButton>В корзину</S.CartButton>
-
-              <S.FavoriteBtn>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                </svg>
-              </S.FavoriteBtn>
-            </S.ActionContainer>
-          </S.InfoSection>
-        </S.ProductContentGrid>
-
-        <S.CharacteristicsTable>
-          <h3>Характеристика</h3>
-          <div className="row">
-            <span className="label">Цвет</span>
-            <span className="value">Желтый</span>
-          </div>
-          <div className="row">
-            <span className="label">Год</span>
-            <span className="value">2016</span>
-          </div>
-          <div className="row">
-            <span className="label">Страна</span>
-            <span className="value">Швейцария</span>
-          </div>
-        </S.CharacteristicsTable>
-      </S.ProductWrapper>
-    </div>
+      <CatalogUy showHeader={true} showBottom={true} />
+      <Text />
+    </S.Container>
   );
-}
+};
+
+export default Catalog;
